@@ -1,0 +1,131 @@
+body
+{
+	background-color: #b3ffb3;
+}
+
+.arrayContainer
+{
+	height:250px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+div.arrayDiv
+{
+	position:relative;
+	background-color: white;
+}
+
+div.node
+{
+	display:block;
+	text-align: center;
+	line-height: 50px;
+	height: 50px;
+	width: 50px;
+	font-size: 200%;
+	padding: 10px;
+	position:absolute;
+	top:0px;
+	transition: top 1.5s, color 1s, left 3s;
+}
+
+.node.comparator
+{
+	opacity:0;
+	top:0px;
+	left:0px;
+	font-size: 300%;
+	font-weight: bold;
+	transition: opacity 1s;
+}
+
+.imgButton
+{
+	height: 50px; 
+	width: 50px; 
+	cursor:pointer;
+}
+
+pre code {
+	height: auto;
+	background-color: #eee;
+	border: 1px solid #999;
+	display: block;
+	padding: 20px;
+	font-size: 125%;
+	width: 75%;
+	margin:auto;
+}
+
+.tab {
+	display:flex;
+	justify-content: center;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #b380ff;
+}
+
+.buttons
+{
+	display:flex;
+	justify-content: center;
+	padding:10px;
+}
+
+.comment
+{
+	display: inline;
+	text-align: center;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background:#443b3b;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: red;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: red;
+    cursor: pointer;
+}

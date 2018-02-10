@@ -1,0 +1,32 @@
+header {
+	padding: 15px;
+	color: white;
+	background-color: #006600;
+	clear: left;
+	text-align: center;
+	}
+body {
+	background-color: #b3ffb3;
+}
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 15px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 15px;
+    overflow: hidden;
+}

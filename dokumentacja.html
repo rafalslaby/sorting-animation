@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Dokumentacja</title>
+		<link rel="stylesheet" href="dokumentacja_style.css">
+	</head>
+	<body>
+		<header>
+			<h1>Dokumentacja projektu</h1>
+		</header>
+		<nav>
+			<ul>
+				<li><a href="#temat">Temat i cel projektu</a></li>
+				<li><a href="#implementacja">Implementacja</a></li>
+				<li><a href="#wyglad">Wygląd i obsługa strony</a></li>
+				<li><a href="index.html">Powrót</a></li>
+			</ul>
+		</nav>
+		<article class="article">
+			<h1 id="temat">
+				Temat i cel projektu
+			</h1>
+			<p>
+				Tematem projektu było stworzenie strony internetowej prezentującej trzy metody sortowania – przez wybieranie, przez wstawianie i bąbelkowe. Celem projektu było przedstawienie pseudokodu danego sortowania oraz animacja przedstawiająca jego działanie na przykładowej tablicy liczb. 
+			</p>
+			<h1 id="implementacja">
+				Implementacja
+			</h1>
+			<p>
+				Projekt został napisany w języku HTML z wykorzystaniem języka JavaScript oraz arkusza styli CSS.<br><br>
+
+				Pełna dokumentacja zmiennych i funkcji jest dostępna w pliku JS.<br><br>
+
+				Plik z kodem JavaScript jest sercem aplikacji. Głównym założeniem projektu było umieszczenie liczb w divach i manipulacja ich położeniami przy wykorzystaniu atrybutu transition arkuszy styli CSS, który pozwala uzyskać płynne przejścia pomiędzy zmianami położenia. Tablica przechowywana jest w zmiennej globalnej. Jest ona wypełniana liczbami za pomocą odpowiednich funkcji – funkcji pobierającej wprowadzone liczby przez użytkownika z uwzględnieniem walidacji (akceptujemy tylko liczby mniejsze od 100 oddzielone przecinkami lub spacjami, podanie litery lub znaku powoduje wyświetlenie powiadomienia o powodzie błędu wczytywania; co więcej sprawdzane jest także, czy podana ilość liczb zmieści się w oknie przeglądarki), druga funkcja wypełnia tablice pięcioma losowymi liczbami z przedziału 0-9. Po wprowadzeniu tablicy do zmiennej globalnej ustawiany jest div zawierający całą tablicę oraz divy odpowiadające poszczególnym liczbom. <br><br>
+				Za wszelkie animacje na stronie odpowiedzialne są trzy funkcje – funkcja porównują dwie liczby (w dwóch wersjach: pierwszej, która nie unosi liczb, wykorzystana w sortowaniach, w których porównywane są zawsze liczby sąsiadujące, oraz drugiej, która unosi porównywane liczby) oraz funkcji zamieniającej liczby miejscami (aby zachować połączenie pomiędzy zmienną globalną a wyświetlanymi divami przy zamianie liczb w zmiennej globalnej zmieniane są ich id tak, aby odpowiadały indeksom w tablicy). Obydwie funkcje tak naprawdę inicjują sekwencje animacji. Każda funkcja w sekwencji ustawia timeout dla kolejnego elementu sekwencji. Takie podejście pozwala na minimalizację ilości ustawionych timeoutów – ich ilość w kolejce nigdy nie przekracza trzech. Dodatkowo id każdego timeoutu dodawane jest do tablicy globalnej, która – w razie potrzeby - umożliwia ich odwołanie. Ostatni element sekwencji kończy sekwencje bez przesyłania sterowania do funkcji wywołującej, w ten sposób funkcje te są niepowiązane z konkretnym algorytmem sortowania.<br><br>
+				Algorytmy sortowania zostały zaimplementowane przy użyciu funkcji obliczającej kolejny krok algorytmu. Funkcja ta jest zrealizowana przy użyciu maszyny stanów, której stany odpowiadają krokom algorytmu (w ogólności położeniu w dwóch zagnieżdżonych pętlach for). Algorytm inicjowany jest przez wysłanie do funkcji pierwszego stanu (FOR1INIT). Każdy stan wykonuje odpowiednie zadanie oraz wywołuje funkcję ponownie przekazując jej kolejny stan jako parametr wywołania. Wywołanie to jest „pseudorekurencyjne”, gdyż wykorzystuje setTimeout z ustawionym czasem na 0. Takie rozwiązanie pozwala funkcji zakończyć swój bieg w normalnym trybie przez co minimalizuje liczbę niepotrzebnych funkcji na stosie wywołań. Wybór maszyny stanów wynikał z braku funkcji sleep w języku JavaScript oraz chęci ominięcia tworzenia tej funkcji na siłę przy użyciu pętli while, wykonującej puste iteracje przez określony czas, gdyż takie rozwiązanie powoduje niepotrzebne użycie procesora oraz uniemożliwia wykonanie innego kodu JavaScript w trakcie sleep’u.<br><br>
+				JavaScript odpowiada również za sterowanie animacją przez użytkownika – użytkownik może przerwać bieżącą animacje.
+				Język JS odpowiada także za obsługę listy zakładek – podświetlanie aktywnej oraz wyświetlenie kodu wybranego algorytmu.<br><br>
+
+				Plik HTML składa się z głównie z elementów div, którymi manipuluje aplikacja napisana w języku JavaScript. Plik HTML posiada także, element input odpowiedzialny za wczytywanie elementów tablicy przez użytkownika przy użyciu klawiatury. Strona składa się również z elementów button tworzących jej interfejs, a wszelkie interakcje z użytkownikiem obsługiwane są przez odpowiednie eventy przesyłane do aplikacji napisanej w języku JavaScript. <br><br>
+
+				Arkusz styli CSS odpowiada za styl wyświetlenia strony. Przy użyciu odpowiednich klas zapewnia skalowalność strony.
+
+			</p>
+
+			<h1 id="wyglad">
+				Wygląd i obsługa strony
+			</h1>
+			<p>
+				Strona zawiera napis tytułowy. Poniżej tytułu znajduje się lista zakładek odpowiadających za wybór algorytmu sortowania. Wybór poszczególnej zakładki wyświetla kod algorytmu oraz określa algorytm, którym będzie sortowana tablica w momencie wystartowania animacji. Ostatnia zakładka prowadzi do arkusza pdf opisującego projekt.
+				Za obsługę animacji odpowiedzialne są trzy przyciski:<br>
+				<ul>
+					<li>kostka – wypełnia tablicę pięcioma losowymi liczbami z przedziału 0-9</li>
+					<li>zielony przycisk start – startuje wizualizacje sortowania tablicy przy użyciu wybranego algorytmu sortowania dla obecnie wprowadzonej bądź wylosowanej tablicy liczb (w przypadku braku tablicy automatycznie wypełnia tablicę losowymi danymi)</li>
+					<li>czerwony przycisk stop – zatrzymuje obecnie wykonywaną wizualizacje oraz resetuje tablice</li>
+				</ul>
+				
+
+				Poniżej przycisków znajduje się nazwa wybranego algorytmu sortowania oraz opis sposobu wpisywania liczb do okienka z prawej strony. Białe pole pozwala wprowadzać własne tablice danych.<br>
+				Po wystartowaniu animacji bądź wprowadzeniu danych poniżej ukazuje się tablica liczb, na przykładzie której przeprowadzane jest sortowanie.
+
+			</p>
+			
+		</article>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sortowanie</title>
+		<script src="scripts.js"></script>
+		<link rel="stylesheet" href="styles.css">
+		<meta charset="UTF-8">
+	</head>
+	<body>
+		<div style="text-align: center;">
+			<h1>Strona poswiecona sortowaniu</h1>
+		</div>
+		<div class='tab'>
+			<button id="t3" class="tablinks" onclick="selectionCode()">Sortowanie przez wybieranie</button>
+			<button id="t1" class="tablinks" onclick="bubbleCode()">Sortowanie bąbelkowe</button>
+			<button id='t2' class="tablinks" onclick="insertionCode()">Sortowanie przez wstawianie</button>
+			<a href="dokumentacja.html"><button id='t4' class="tablinks">Dokumentacja</button></a>
+		</div>
+		<pre>
+			<code id="codeBlock"></code>
+		</pre>
+		<div style="display: flex; justify-content: center; flex-direction: column;">
+			<p class="comment" id="prompt1"><b id="boldSorting">Sortowanie przez wybieranie </b> <br> 
+			Podaj liczby całkowite (-100; 100) oddzielone spacjami lub przecinkami i wciśnij enter (np 1 2 3)  </p>
+			<input type="text" id="customizedArray" onkeydown="checkIfEnter(event);" value="" id="numbers_input" style="text-align: center; margin:auto; width: 50%;">
+			<p class="comment"><b> Dostosuj prędkość </b></p>
+			<input type="range" min="1" max="200" value="100" style="width: 50%; margin:auto;" class="slider">
+		</div>
+		<div class="buttons">
+			<img src="Cube.png" class="imgButton" onclick="fillTabRandomly(5)" alt="Losowanie">
+			<img src="Start.png" class="imgButton" onclick="startSorting();" alt="Start">
+			<img src="Stop.png" class="imgButton" onclick="stopSorting();" alt="Stop">
+		</div>
+
+		<div class="arrayContainer" style="display:none">
+			<div class="arrayDiv">
+			</div>
+		</div>
+
+
+		<script>
+			selectionCode();
+		</script>
+
+	</body>
+</html>
